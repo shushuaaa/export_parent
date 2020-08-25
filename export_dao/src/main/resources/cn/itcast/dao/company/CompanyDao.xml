@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--名称空间：接口的全类名-->
+<mapper namespace="cn.itcast.dao.company.CompanyDao">
+
+
+    <!--由于数据库表的字段名与实体类的属性名不对应，所以我们可以编写一个结果集-->
+    <resultMap id="BaseRResultMap" type="cn.itcast.domain.company.Company">
+        <!--主键列   column： 数据库表列名   property 实体类的属性名-->
+        <id     property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="expirationDate" column="expiration_date"/>
+        <result property="address" column="address"/>
+        <result property="licenseId" column="license_id"/>
+        <result property="representative" column="representative"/>
+        <result property="phone" column="phone"/>
+        <result property="companySize" column="company_size"/>
+        <result property="industry" column="industry"/>
+        <result property="remarks" column="remarks"/>
+        <result property="state" column="state"/>
+        <result property="balance" column="balance"/>
+        <result property="city" column="city"/>
+    </resultMap>
+
+
+    <!--查找所有的企业 ,  注意： 如果使用结果集，select标签需要使用ResultMap而不是ResultType-->
+    <select id="findAll" resultMap="BaseRResultMap">
+        select * from ss_company
+    </select>
+
+</mapper>
